@@ -1,0 +1,30 @@
+{
+  "name": "teste-tecnico-radar-fit",
+  "version": "1.0.0",
+  "description": "teste tecnico radarFit",
+  "main": "index.js",
+  "scripts": {
+    "pm2": "./node_modules/.bin/pm2",
+    "jest": "./node_modules/.bin/jest",
+    "start": "./scripts/prepare-for-test.sh",
+    "stop": "(pm2 stop all && pm2 delete all) | grep 'PM2'",
+    "dev": "./scripts/prepare-for-dev.sh",
+    "dev:prestart": "./scripts/prestart-dev.sh",
+    "db:reset": "./scripts/reset-db-dev.sh",
+    "db:reset:debug": "./scripts/reset-db-dev-debug.sh",
+    "pretest": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josealexandre301428/Teste_Tecnico_RadarFit.git"
+  },
+  "author": "José alexandre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josealexandre301428/Teste_Tecnico_RadarFit.git/issues"
+  },
+  "homepage": "https://github.com/josealexandre301428/Teste_Tecnico_RadarFit.git#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
