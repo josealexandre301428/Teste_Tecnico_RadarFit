@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
-import IService from '../interface/IService';
+import { query, Request, Response } from 'express';
+import { IModel } from '../interface/IModel';
 import { IProduct } from '../interface/IProduct';
 
 export default class ProductController {
-  private _controller: IService<IProduct>;
+  private _controller: IModel<IProduct>;
 
-  constructor(controller: IService<IProduct>) {
+  constructor(controller: IModel<IProduct>) {
     this._controller = controller;
   }
 
@@ -24,7 +24,12 @@ export default class ProductController {
     return res.status(200).json(result);
   }
 
-  public async update(req: Request, res: Response<IProduct | null>) {
+  public async readOneQuery(req: Request, res: Response<IProduct[] | null>) {
+    const result = await this._controller.find(req.query);
+    return res.status(200).json(result);
+  }
+
+  public async update(req: Request, res: Response<any | null>) {
     const result = await this._controller.update(req.params.id, req.body);
     return res.status(200).json(result);
   }

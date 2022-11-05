@@ -6,6 +6,8 @@ import { ErrorTypes } from '../errors/catalogy';
 class ProductService implements IService<IProduct> {
   constructor(private _product: IModel<IProduct>) {}
 
+  public async  createIndex(obj:any):Promise<void> {}
+
   public async create(obj: unknown): Promise<IProduct> {
     const parsed = productSchema.safeParse(obj);
 
@@ -16,7 +18,7 @@ class ProductService implements IService<IProduct> {
     parsed.data.created = new Date();
     parsed.data.updated = new Date();
 
-    return this._product.create(parsed.data);
+    return this._product.create(parsed.data); 
   }
 
   public async read(): Promise<Array<IProduct>> {
@@ -29,8 +31,11 @@ class ProductService implements IService<IProduct> {
     return product;
   }
 
-  public async readOneQuery(q: string): Promise<IProduct | null> {
-    const product = await this._product.find({ produto: { $in: [q]}}, {produto: 1, valor: 1, descricao: 1, created: 1, updated: 1});
+  public async find(q: string): Promise<any[] | null> {
+    console.log(q);
+
+    await this._product.createIndex({produto: "text"});
+    const product = this._product.find({$text: {$search: [q]}})
     if (!product) throw new Error(ErrorTypes.EntityNotFound);
     return product;
   }

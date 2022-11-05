@@ -8,9 +8,9 @@ const productSchema = new Schema<IProduct>({
   descricao: String,
   created: Date,
   updated: Date,
-}, { versionKey: false });
+});
 
-export default class Cars extends MongoModel<IProduct> {
+export default class Products extends MongoModel<IProduct> {
   constructor(model = mongooseCreateModel('Products', productSchema)) {
     super(model);
   }
