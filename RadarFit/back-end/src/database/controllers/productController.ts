@@ -34,6 +34,11 @@ export default class ProductController {
     return res.status(200).json(result);
   }
 
+  public async updatePatch(req: Request, res: Response<any | null>) {
+    const result = await this._controller.update(req.params.id, req.body);
+    return res.status(200).json(result);
+  }
+
   public async delete(req: Request, res: Response<IProduct | null>) {
     await this._controller.delete(req.params.id);
     return res.status(204).end();

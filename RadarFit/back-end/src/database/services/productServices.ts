@@ -49,6 +49,16 @@ class ProductService implements IService<IProduct> {
     return update;
   }
 
+  public async updatePatch(_id: string, obj: IProduct): Promise<IProduct | null> {
+    if (Object.keys(obj).length === 0) throw new Error(ErrorTypes.ObjectEmpty);
+
+    obj.updated = new Date();
+    const update = await this._product.update(_id, obj);
+    if (!update) throw new Error(ErrorTypes.EntityNotFound);
+    return update;
+  }
+
+
   public async delete(_id: string): Promise<IProduct | null> {
     const deleted = await this._product.delete(_id);
     if (!deleted) throw new Error(ErrorTypes.EntityNotFound);

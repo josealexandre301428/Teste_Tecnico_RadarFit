@@ -14,6 +14,7 @@ route.get('/products/:id', (req, res) => productController.readOne(req, res));
 route.get('/products/?find', (req, res) => productController.readOneQuery(req, res));
 route.post('/products', (req, res) => productController.create(req, res));
 route.put('/products/:id', (req, res) => productController.update(req, res));
+route.patch('/products/:id', (req, res) => productController.updatePatch(req, res));
 route.delete('/products/:id', (req, res) => productController.delete(req, res));
 
 export default route;
