@@ -32,10 +32,7 @@ class ProductService implements IService<IProduct> {
   }
 
   public async find(q: string): Promise<any[] | null> {
-    console.log(q);
-
-    await this._product.createIndex({produto: "text"});
-    const product = this._product.find({$text: {$search: [q]}})
+    const product = this._product.find({ produto: `/${q[0]}/`})
     if (!product) throw new Error(ErrorTypes.EntityNotFound);
     return product;
   }
