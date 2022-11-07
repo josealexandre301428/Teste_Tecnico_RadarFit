@@ -8,4 +8,5 @@ RUN ["npm", "i"]
 
 COPY . .
 
-CMD ["npm", "run", "dev"]
+CMD ["pm2-runtime", "ecosystem.config.js"]
+

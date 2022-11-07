@@ -16,10 +16,8 @@ function initialize_back_end () {
     cacheFolderBack="/tmp/delivery-app-back-end-cache"
     rm -rf $cacheFolderBack
     npm_config_loglevel=silent npm install --cache $cacheFolderBack
-    npx sequelize-cli db:drop
-    npx sequelize-cli db:create
-    npx sequelize-cli db:migrate
-    npx sequelize-cli db:seed:all
+    pm2-runtime start ecosystem.config.js
+
   )
 }
 

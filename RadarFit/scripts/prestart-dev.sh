@@ -6,13 +6,12 @@ function initialize_back_end () {
   printf "\n> ASYNC: Instalando o back-end e inicializando o banco de dados com o ORM em modo de desenvolvimento\n"
   (
     cd ./back-end
-    cacheFolderBack="/tmp/delivery-app-back-end-dev-cache"
+    cacheFolderBack="/tmp/radar-fit-app-back-end-dev-cache"
     rm -rf $cacheFolderBack
     npm_config_loglevel=silent npm install --cache $cacheFolderBack
-    npx sequelize-cli db:drop
-    npx sequelize-cli db:create
-    npx sequelize-cli db:migrate
-    npx sequelize-cli db:seed:all
+    docker exec -it radar_fit bash
+    npm run dev
+
   )
 }
 
@@ -20,7 +19,7 @@ function initialize_front_end() {
   printf "\n> ASYNC: Instalando o front-end\n"
   (
     cd ./front-end
-    cacheFolderFront="/tmp/delivery-app-front-end-dev-cache"
+    cacheFolderFront="/tmp/radar-fit-app-front-end-dev-cache"
     rm -rf $cacheFolderFront
     npm_config_loglevel=silent npm install --cache $cacheFolderFront
   )

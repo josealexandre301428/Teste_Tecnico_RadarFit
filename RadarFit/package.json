@@ -7,11 +7,6 @@
     "pm2": "./node_modules/.bin/pm2",
     "jest": "./node_modules/.bin/jest",
     "start": "./scripts/prepare-for-test.sh",
-    "stop": "(pm2 stop all && pm2 delete all) | grep 'PM2'",
-    "dev": "./scripts/prepare-for-dev.sh",
-    "dev:prestart": "./scripts/prestart-dev.sh",
-    "db:reset": "./scripts/reset-db-dev.sh",
-    "db:reset:debug": "./scripts/reset-db-dev-debug.sh",
     "pretest": "npm start"
   },
   "repository": {
@@ -28,6 +23,7 @@
     "express": "4.17.1",
     "express-async-errors": "3.1.1",
     "joi": "17.6.0",
+    "module-alias": "^2.2.2",
     "mongoose": "6.1.8",
     "zod": "3.11.6"
   },
