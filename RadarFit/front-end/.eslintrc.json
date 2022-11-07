@@ -1,5 +1,8 @@
 {
   "root": true,
   "extends": ["trybe-frontend"],
-  "react/jsx-max-depth": [{ "max": 6 }]
+  "rules": {
+    "max-depth":"off"
+    
+  }
 }

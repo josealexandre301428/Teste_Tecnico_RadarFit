@@ -10,11 +10,11 @@ import ByIdProvider from './context/byId/provider';
 
 ReactDOM.render(
   <ProductProvider>
-    <SearchProvider>
-      <ByIdProvider>
+    <ByIdProvider>
+      <SearchProvider>
         <App />
-      </ByIdProvider>
-    </SearchProvider>
+      </SearchProvider>
+    </ByIdProvider>
   </ProductProvider>,
   document.getElementById('root'),
 );

@@ -40,6 +40,8 @@ export default class ProductController {
   }
 
   public async delete(req: Request, res: Response<IProduct | null>) {
+
+    console.log("id:" + req.params.id + "type:" + typeof req.params.id);
     await this._controller.delete(req.params.id);
     return res.status(204).end();
   }

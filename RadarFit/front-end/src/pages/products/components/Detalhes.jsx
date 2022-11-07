@@ -1,7 +1,8 @@
 import { useEffect, useContext } from 'react';
-import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import api from '../../../services/Api';
 import ByIdContext from '../../../context/byId/context';
+import Modify from './modify';
 
 export default function Detalhes() {
   const {
@@ -26,7 +27,8 @@ export default function Detalhes() {
 
   const { produto, valor, descricao } = prodById;
   return (
-    <section>
+    <section className="text-center">
+      <h3>Detalhes</h3>
       <Card
         style={ {
           width: '18rem',
@@ -57,13 +59,7 @@ export default function Detalhes() {
             { descricao }
           </CardText>
           <div className="cardButton d-grid gap-3">
-            <Button
-              color="secondary"
-              className="p-2 flex-fill"
-              name="sobre"
-            >
-              Editar
-            </Button>
+            <Modify />
           </div>
         </CardBody>
       </Card>

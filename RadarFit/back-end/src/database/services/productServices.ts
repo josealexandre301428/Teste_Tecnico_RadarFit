@@ -1,5 +1,4 @@
 import IService from '../interface/IService';
-import { Mongoose } from 'mongoose';
 import { IProduct, productSchema } from '../interface/IProduct';
 import { IModel } from '../interface/IModel';
 import { ErrorTypes } from '../errors/catalogy';
@@ -7,7 +6,6 @@ import { ErrorTypes } from '../errors/catalogy';
 class ProductService implements IService<IProduct> {
   constructor(private _product: IModel<IProduct>) {}
 
-  public async  createIndex(obj:any):Promise<void> {}
 
   public async create(obj: unknown): Promise<IProduct> {
     const parsed = productSchema.safeParse(obj);

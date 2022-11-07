@@ -38,6 +38,15 @@ export default function NavBar() {
           >
             Buscar por um Produto
           </Button>
+          <Button
+            className="submit rounded-0"
+            color="Transparent"
+            outline
+            type="button"
+            onClick={ () => setSeraching(false) }
+          >
+            Limpar Busca
+          </Button>
         </Form>
       </div>
     </nav>

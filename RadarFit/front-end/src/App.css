@@ -10,6 +10,14 @@
   width: 100%;
 }
 
+.nav {
+  margin-bottom: 50px;
+}
+
+.newProd {
+  margin-bottom: 50px;
+}
+
 .submit {
   color: gainsboro;
 }

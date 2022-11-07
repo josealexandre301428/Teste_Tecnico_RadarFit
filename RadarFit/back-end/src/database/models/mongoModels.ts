@@ -1,7 +1,6 @@
 import { isValidObjectId, Model, UpdateQuery } from 'mongoose';
 import { ErrorTypes } from '../errors/catalogy';
 import { IModel } from '../interface/IModel';
-import { IProduct } from '../interface/IProduct';
 
 abstract class MongoModel<T> implements IModel<T> {
   protected _model:Model<T>;
@@ -9,8 +8,6 @@ abstract class MongoModel<T> implements IModel<T> {
   constructor(model:Model<T>) {
     this._model = model;
   }
-
-  public async  createIndex(obj:any):Promise<any> {}
 
   public async create(obj:T):Promise<T> {
     return this._model.create({ ...obj });
