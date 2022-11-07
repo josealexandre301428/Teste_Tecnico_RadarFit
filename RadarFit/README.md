@@ -14,11 +14,10 @@ Primeira etapa do processo seletivo, com o objetivo de demonstrar minhas habilid
      - `npm install`
 3- para rodar o Back-end
 - Para rodar somento o back end no seu editor, basta entrar no diretorio de back end( `cd back-end`) e utilizar um dos comandos abaixo:
-     - `npm start`  rodara a aplicaçao fora do nodemon.
-     - `npm run dev` - rodara a api em ambiente nodemon, onde facilitara a identificaçao de bugs.
+     - `docker exec -it radar_fit bash` inicia a instancia docker.
+     - `npm install` para instalar as dependencias.
+     - `npm run dev`  rodara a aplicaçao.
 
-     - caso precise resetar o banco de dados, basta utilisar o comando `npm run db:resert` na raiz de back-end.
-
-4 - rodando a aplicação! 
-- Para rodar a aplicação completa no browser (Fron e Back end) basta usar o comando abaixo na raiz do projeto.
+4 - rodando a Front! 
+- Para rodar a aplicação:
     - `npm start`
