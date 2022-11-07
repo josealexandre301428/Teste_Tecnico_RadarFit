@@ -25,7 +25,6 @@ export default class ProductController {
   }
 
   public async readOneQuery(req: Request, res: Response<IProduct[] | null>) {
-    
     const result = await this._controller.find(Object.values(req.query));
     return res.status(200).json(result);
   }

@@ -1,4 +1,5 @@
 import IService from '../interface/IService';
+import { Mongoose } from 'mongoose';
 import { IProduct, productSchema } from '../interface/IProduct';
 import { IModel } from '../interface/IModel';
 import { ErrorTypes } from '../errors/catalogy';
@@ -32,9 +33,11 @@ class ProductService implements IService<IProduct> {
   }
 
   public async find(q: string): Promise<any[] | null> {
-    const product = this._product.find({ produto: `/${q[0]}/`})
-    if (!product) throw new Error(ErrorTypes.EntityNotFound);
-    return product;
+    const product = await this._product.read();
+    const result = product.filter((item) => item.produto.toLowerCase()
+    .includes(q[0].toLowerCase()))
+    if (result.length < 1) throw new Error(ErrorTypes.EntityNotFound);
+    return result;
   }
 
   public async update(_id: string, obj: IProduct): Promise<IProduct | null> {

@@ -4,11 +4,17 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
-import ProductProvider from './context/provider';
+import ProductProvider from './context/products/provider';
+import SearchProvider from './context/search/provider';
+import ByIdProvider from './context/byId/provider';
 
 ReactDOM.render(
   <ProductProvider>
-    <App />
+    <SearchProvider>
+      <ByIdProvider>
+        <App />
+      </ByIdProvider>
+    </SearchProvider>
   </ProductProvider>,
   document.getElementById('root'),
 );

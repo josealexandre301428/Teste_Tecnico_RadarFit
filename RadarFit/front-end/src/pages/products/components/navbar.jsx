@@ -1,17 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Input, Form } from 'reactstrap';
-import ProductContext from '../../../context/context';
 import api from '../../../services/Api';
+import SearchContext from '../../../context/search/context';
 
 export default function NavBar() {
-  const { setProduct } = useContext(ProductContext);
   const [search, setSearch] = useState('');
+  const { setProductSearch, setSeraching } = useContext(SearchContext);
 
   const handleSearch = async (value) => {
     try {
-      const products = await api.get(`/products/?find=${value}`);
-      setProduct(products.data);
+      const products = await api.get(`/produtos/find?search=${value}`);
       console.log(products.data);
+      setProductSearch(products.data);
+      setSeraching(true);
     } catch (error) {
       throw new Error();
     }
@@ -32,7 +33,7 @@ export default function NavBar() {
             className="submit rounded-0"
             color="Transparent"
             outline
-            type="submit"
+            type="button"
             onClick={ () => handleSearch(search) }
           >
             Buscar por um Produto

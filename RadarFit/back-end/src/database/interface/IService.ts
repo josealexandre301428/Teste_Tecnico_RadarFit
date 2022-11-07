@@ -1,6 +1,5 @@
 export default interface IService<T> {
   create(obj:T):Promise<T>,
-  find(q: string):Promise<any[] | null>
   read():Promise<T[]>,
   readOne(_id:string):Promise<T | null>,
   update(_id:string, obj:T):Promise<T | null>,
